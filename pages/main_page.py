@@ -11,6 +11,9 @@ class MainPage(BasePage):
     def main_navigation(self):
         elements = self.find_elements(self.NAV_LINKS)
         return [el.text.strip() for el in elements if el.text.strip()]
+    
+    def left_navigation(self):
+        
         
         
     

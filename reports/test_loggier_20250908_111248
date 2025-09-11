@@ -1,0 +1,25 @@
+2025-09-08 11:12:48,343 - INFO - ====== WebDriver manager ======
+2025-09-08 11:12:49,160 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:12:49,179 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:12:49,195 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\139.0.7258.154\chromedriver-win32/chromedriver.exe] found in cache
+2025-09-08 11:12:50,240 - INFO - ====== WebDriver manager ======
+2025-09-08 11:12:51,007 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:12:51,020 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:12:51,033 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\139.0.7258.154\chromedriver-win32/chromedriver.exe] found in cache
+2025-09-08 11:13:10,379 - INFO - ====== WebDriver manager ======
+2025-09-08 11:13:11,105 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:13:11,119 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:13:11,131 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\139.0.7258.154\chromedriver-win32/chromedriver.exe] found in cache
+2025-09-08 11:13:18,728 - INFO - AcuLink 810
+2025-09-08 11:13:20,905 - INFO - ====== WebDriver manager ======
+2025-09-08 11:13:21,652 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:13:21,668 - INFO - Get LATEST chromedriver version for google-chrome
+2025-09-08 11:13:21,681 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\139.0.7258.154\chromedriver-win32/chromedriver.exe] found in cache
+2025-09-08 11:13:29,808 - INFO - Test Main Navigation Passed
+2025-09-08 11:13:31,934 - INFO - Test Left Menu 0 Passed, open https://s8p53070095.accuenergy.io/#/devices/dashboard works
+2025-09-08 11:13:34,032 - INFO - Test Left Menu 1 Passed, open https://s8p53070095.accuenergy.io/#/devices/alarm_logs works
+2025-09-08 11:13:36,120 - INFO - Test Left Menu 2 Passed, open https://s8p53070095.accuenergy.io/#/devices/modbus_devices/list works
+2025-09-08 11:13:38,205 - INFO - Test Left Menu 3 Passed, open https://s8p53070095.accuenergy.io/#/devices/bacnet_devices/list works
+2025-09-08 11:13:40,290 - INFO - Test Left Menu 4 Passed, open https://s8p53070095.accuenergy.io/#/devices/mbus/list works
+2025-09-08 11:13:42,382 - INFO - Test Left Menu 5 Passed, open https://s8p53070095.accuenergy.io/#/devices/digital_inputs works
+2025-09-08 11:13:44,472 - INFO - Test Left Menu 6 Passed, open https://s8p53070095.accuenergy.io/#/devices/virtual_device/list works

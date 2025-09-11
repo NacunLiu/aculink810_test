@@ -29,12 +29,50 @@ def get_driver(request):
     request.cls.driver = driver
     yield driver
     driver.quit()
+
+@pytest.fixture(scope="session", autouse=True)
+def configure_logger(request):
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
     
-@pytest.fixture(scope="class")
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
+    fh = logging.FileHandler(f"reports/test_loggier_{timestamp}", mode="w", encoding="utf-8")
+    fh.setLevel(logging.INFO)
+    
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    fh.setFormatter(formatter)
+    
+    logger.addHandler(fh)
+    return logger
+
+
+    
+@pytest.fixture(scope="class", autouse=True)
 def login(request, get_driver):
     login_page = LoginPage(get_driver)
     get_driver.get(BASE_URL)
     title = login_page.login()
+    
+@pytest.fixture(scope="class")
+def driver(request):
+    service = Service(executable_path=ChromeDriverManager().install())
+    options = Options()
+    options.add_argument("--start-maximized")
+    options.add_argument("--disable-notifications")
+    driver = webdriver.Chrome(service=service, options=options)
+    request.cls.driver = driver
+    yield driver
+    driver.quit()    
+    
 
+@pytest.fixture(scope="session", autouse=True)
+def configure_logger():
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+    
+    sh = logging.StreamHandler()
+    formatter = logging.Formatter("%(asctome)s - %(levelname)s - %(message)s")
+    
+    sh.setLevel(logging.DEBUG)
     
     

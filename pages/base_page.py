@@ -76,7 +76,7 @@ class BasePage:
         self.logger.info(f"Screenshot saved")
         
 
-        
+
         
             
         

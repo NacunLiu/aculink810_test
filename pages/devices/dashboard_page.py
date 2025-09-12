@@ -9,6 +9,9 @@ class DevicesDashboard(BasePage):
     OFFLINE_DEVICES_TABLE = (By.CSS_SELECTOR, "table.table.table-striped.no-border.table-hover")
     ALARMS = (By.CSS_SELECTOR, "table.table.table-striped.no-border.table-hover")
     
+    
+    # 这个setup方法是pytest的方法而不是python的方法，只有写在test脚本内才会在执行测试的时候首先自动执行
+    # 放在POM类除非手动调用, 否则不会自动执行
     @classmethod
     def setup_class(cls):
         cls.driver.get("https://s8p53070095.accuenergy.io/#/devices/dashboard")
@@ -18,6 +21,7 @@ class DevicesDashboard(BasePage):
     # super().父类方法名的作用有两个:第一是当子类方法与父类方法同名时可以不直接覆盖会先调用父类方法之后进行扩展
     # 第二就是如果不使用super那么父类的初始化方法 def __init__(self) 不会被自动调用就无法传递driver
     # super就是相当于调用了一次父类中的方法就等同于BasePage.__init__(self, driver) 
+    
     def __init__(self, driver):
         super().__init__(driver)
         self.common_methods = CommonMethods()

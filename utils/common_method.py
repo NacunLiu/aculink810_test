@@ -1,7 +1,11 @@
+import yaml
+import json
+import os
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+
 
 
 class CommonMethods:
@@ -21,4 +25,18 @@ class CommonMethods:
             if tab.text.strip() == target_tab:
                 return tab
             
+    # 读取yaml文件 传入reference数据文件路径 返回json格式数据 
+    def load_yaml_test_data(self, file_path):
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"YAML file not found: {file_path}")
+        with open(file=file_path, mode='r', encoding='utf-8') as f:
+            data = yaml.safe_load(f) #转换成python字典
+        return data
     
+    # 读取json文件 传入reference数据文件路径 返回json格式数据
+    def load_json_test_data(self, file_path):
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"JSON file not found: {file_path}")
+        with open(file=file_path, mode='r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data

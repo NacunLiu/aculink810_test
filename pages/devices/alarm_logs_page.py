@@ -126,3 +126,6 @@ class AlarmLogs(BasePage):
         alarm_table = self.find(self.ALARM_LOG_TABLE)
         table_data = self.common_methods.get_table_data(alarm_table)
         return table_data
+            
+    
+    

@@ -9,6 +9,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 
 class CommonMethods:
+    # 获取table中的所有元素文本, 输入table元素, 输出一个包含所有元素文本的二维列表
     def get_table_data(self, table: WebElement):
         table_data = []
         rows = table.find_elements(By.XPATH, ".//tbody/tr")
@@ -17,11 +18,16 @@ class CommonMethods:
             table_data.append(cells)
         return table_data
     
+    # 获取下拉菜单中的所有内容
+    def get_options(self, select: WebElement):
+        return [opt.text.strip() for opt in select.options]
+    
+    
     # 用来提取左侧导航栏中的目标元素，在每一个POM页面开始的时候进行点击进入页面开始测试
+    # 因为涉及到使用driver去查找元素，所以需要传递一个页面对象也就是在POM中调用这个函数的时候将self作为形参传递
     def get_left_menu_tabs(self, pom, target_tab):
         tabs = pom.find_elements((By.CSS_SELECTOR, ".left_menu ul li"))
         for tab in tabs:
-            pom.logger.info(f"{tab.text.strip()}")
             if tab.text.strip() == target_tab:
                 return tab
             

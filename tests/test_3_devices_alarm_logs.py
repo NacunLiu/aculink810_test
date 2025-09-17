@@ -32,5 +32,5 @@ class TestAlarmLogs:
         
     def test_alarm_log_table(self):
         alarm_data = self.alarm_logs.alarm_log_table()
-        self.alarm_logs.logger.info(f"{alarm_data}")
+        self.alarm_logs.logger.info(f"alarm_data: {alarm_data}")
     

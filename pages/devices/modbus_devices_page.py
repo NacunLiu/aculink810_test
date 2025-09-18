@@ -15,6 +15,9 @@ class ModbusDevices(BasePage):
     TCP_RADIO = (By.ID, "_Protocol_input_1")
     PORT = (By.ID, "_Port_input")
     MODBUS_ID = (By.ID, "_Modbus_ID_input")
+    BLOCK_SILENT_INTERVAL = (By.CSS_SELECTOR, "#_Block_Silent_Interval_input")
+    METER_TABLE = (By.CSS_SELECTOR, ".table.table-striped.no-border.table-hover")
+    CONFIRMATION = (By.CSS_SELECTOR, "button.btn-outline-danger")
     
     SAVE_BTN = (By.CSS_SELECTOR, ".btn.position-relative.btn-success.btn-md")
     
@@ -87,6 +90,44 @@ class ModbusDevices(BasePage):
         modbus_id_input.send_keys("9")
         sleep(1)
         
+        block_silent_interval = self.find(self.BLOCK_SILENT_INTERVAL)
+        block_silent_interval.send_keys('0')
+        sleep(2)
+        
         save_btn = self.find(self.SAVE_BTN)
         save_btn.click()
         sleep(3)
+        
+        self.click_to_enter_test_page()
+        sleep(3)
+        
+    def get_meter_table(self):
+            meter_table = self.find(self.METER_TABLE)
+            table_data = []
+            rows = meter_table.find_elements(By.XPATH, "./tbody//tr")
+            for row in rows:
+               cells = row.find_elements(By.TAG_NAME, "a")
+               texts = [c.text.strip() for c in cells]  # 提取每个 a 标签的 text
+               table_data.extend(texts)  # 或者 append(texts)，看你想要的结构
+            self.logger.info(f"{table_data}")
+            return table_data 
+           
+    def delete_meter(self, meter_name):
+        meter_table = self.find(self.METER_TABLE)
+        table_data = []
+        rows = meter_table.find_elements(By.XPATH, "./tbody//tr")
+        for row in rows:
+            cells = row.find_elements(By.TAG_NAME, "a")
+            if cells[0].text.strip() == "AHB20250917":
+              delete_btn = row.find_elements(By.CSS_SELECTOR, "button")[-1]
+        actions = self.get_actions()
+        actions.move_to_element(delete_btn).perform()
+        sleep(3)
+        delete_btn.click()
+        confirm = self.find(self.CONFIRMATION)
+        sleep(3)
+        confirm.click()
+        sleep(3)
+           
+
+        

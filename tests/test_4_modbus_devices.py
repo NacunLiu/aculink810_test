@@ -10,4 +10,9 @@ class TestModbusDevices:
         
     def test_add_device(self):
         self.modbus_devices.add_device()
+        assert "AHB20250917" in self.modbus_devices.get_meter_table()
+        
+    def test_delete_meter(self):
+        self.modbus_devices.delete_meter("AHB20250917")
+    
         

@@ -42,9 +42,13 @@ def login(request, get_driver):
     title = login_page.login()
     
 
+# logging是一个模块可以看成是一个类,而logger是一个object,是负责具体记录日志的对象
+# 当我们使用logger = logging.getLogger()的时候是使用的root logger
+# 当我们使用logger = logging.getLogger(name)的时候是一个普通的logger,所有其他的logger都继承(inherit from) root logger
+# 所以在BasePage中直接使用logger(__name__)就可以了
 @pytest.fixture(scope="session", autouse=True)
 def configure_logger(request):
-    logger = logging.getLogger()
+    logger = logging.getLogger() # root logger
     logger.setLevel(logging.INFO)
     
     timestamp = time.strftime("%Y%m%d_%H%M%S")
@@ -56,7 +60,8 @@ def configure_logger(request):
     
     logger.addHandler(fh)
     return logger
-    
+
+ 
 
     
 @pytest.fixture(scope="session")

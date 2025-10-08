@@ -12,14 +12,18 @@ import time
 
 
 # 对于810这种先登录才能访问所有内容的设置，只需要传递driver就能获取所有cookie，token信息，所有内容会被保存在这个driver里面
+# for webpages like AcuLink810 that requires login first before all other operation, we only need to pass the driver, it contains all 
+# the session info and it will carry it for you.
 # 只要不关闭driver driver.quit()可以在一次登录之后继续使用这个driver
 
 class BasePage:
-    def __init__(self, driver, timeout=10):
+    def __init__(self, driver, timeout=10): #parameter driver is injected from the test script, and it is  automatically assigned as a class attribute through the 
+        # fixture defined in the conftest.py 
         self.driver = driver
         self.timeout = timeout
-        self.logger = logging.getLogger(__name__)
-        
+        self.logger = logging.getLogger(__name__) # root logger object has already initialized in the conftest.py so this logger inherits all the settings automatically
+        # 这个name就相当于是logger实例的对象属性,每个具体的logger拥有不同的name，甚至我们在设置formatter的时候都可以加入logger的name
+        # formatter = logging.setFormatter("%(asctime)s-%(levelname)s-%(name)s-%(message)s")日志就会记录logger的名字比如 pages.base_page.py
     def find(self, locator):
         wait = WebDriverWait(self.driver, timeout=self.timeout, poll_frequency=0.5)
         try:
@@ -29,7 +33,7 @@ class BasePage:
             self.logger.error("element not found {e}")
             self._take_screenshot("find_failure")
             raise
-        
+
     def find_elements(self, locator):
         wait = WebDriverWait(self.driver, timeout=self.timeout, poll_frequency=0.5)
         try:

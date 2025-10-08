@@ -33,3 +33,6 @@ class DevicesDashboard(BasePage):
     def alarms(self):
          table = self.find_elements(self.ALARMS)[-1]        
          return self.common_methods.get_table_data(table)
+     
+ 
+        

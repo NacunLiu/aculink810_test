@@ -1,0 +1,4 @@
+2025-10-09 11:44:48,776 - INFO - ====== WebDriver manager ======
+2025-10-09 11:44:49,533 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 11:44:49,554 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 11:44:49,569 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\141.0.7390.65\chromedriver-win32/chromedriver.exe] found in cache

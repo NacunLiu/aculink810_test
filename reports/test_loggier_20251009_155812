@@ -1,0 +1,6 @@
+2025-10-09 15:58:12,254 - INFO - ====== WebDriver manager ======
+2025-10-09 15:58:13,008 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:58:13,028 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:58:13,045 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\141.0.7390.65\chromedriver-win32/chromedriver.exe] found in cache
+2025-10-09 15:58:26,706 - INFO - virtual devices list test passed
+2025-10-09 15:58:37,589 - ERROR - click ('xpath', "//button[normalize-split()='Select Device Parameter'") failed

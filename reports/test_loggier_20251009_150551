@@ -1,0 +1,5 @@
+2025-10-09 15:05:51,164 - INFO - ====== WebDriver manager ======
+2025-10-09 15:05:51,930 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:05:51,951 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:05:51,971 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\141.0.7390.65\chromedriver-win32/chromedriver.exe] found in cache
+2025-10-09 15:06:05,989 - INFO - virtual devices list test passed

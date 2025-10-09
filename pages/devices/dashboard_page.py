@@ -23,8 +23,8 @@ class DevicesDashboard(BasePage):
     # super就是相当于调用了一次父类中的方法就等同于BasePage.__init__(self, driver) 
     
     def __init__(self, driver):
-        super().__init__(driver)
-        self.common_methods = CommonMethods()
+        super().__init__(driver) #将driver属性传递到父类也就是BasePage类中,这样之后所有的调用都可以在父类中找到driver， driver的传递过程是 TestClass->This Page Object -> BasePage 
+        self.common_methods = CommonMethods() #将一些通用方法的类作为属性绑定到页面对象，后面可以直接使用
     
     def offline_devices(self):
          table = self.find_elements(self.OFFLINE_DEVICES_TABLE)[0]

@@ -34,6 +34,23 @@ def get_driver(request):
     driver.quit()
 
 
+# request is a pytest built-in fixture object and is used to access information about the test context(pytest 内置夹具用来获取测试脚本的上下文信息,哪个脚本在使用这个夹具就获取哪个脚本的上下文信息)
+# 比如获取测试函数名称,测试类等等 所以在下面中request.cls就是在获取当前测试类对象，并且赋予它类属性为driver这个过程就是一个类级别的注入(class level injection)
+# 当我们在测试脚本中打印这些信息的时候就可以看到 比如 print(request.cls) print(request.function) print(request.node) 就会得到这些信息
+# CLS: <class 'tests.test_login.TestLogin'> FUNC: <function TestLogin.test_valid_login at 0x000001...>  NODE: <Function test_valid_login>
+# 总之就是谁在使用这个夹具，那么request 就可以获取它的所有信息
+
+@pytest.fixture(scope="class", autouse=True)
+def get_driver(request):
+    service = Service(executable_path=ChromeDriverManager().install())
+    options = Options()
+    options.add_argument("--start-maximized")
+    options.add_argument("--disable-notifications")
+    driver = webdriver.Chrome(service=service, options=options)
+    request.cls.driver = driver
+    yield driver
+    driver.quit()
+
 #进行登录 登录和driver初始化必须都是同一个scope的比如都是class保证所有的driver中都进行过登录有所有的会话信息
 @pytest.fixture(scope="class", autouse=True)
 def login(request, get_driver):

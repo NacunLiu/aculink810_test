@@ -75,12 +75,12 @@ class BasePage:
         
     def _take_screenshot(self, name):
         os.makedirs("screenshots", exist_ok=True)
+        # time is a built-in module in python and strftime is a method that converts a time object into a formatted(格式化的) string
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         self.driver.save_screenshot(f"screenshots/{name}_{timestamp}.png")
         self.logger.info(f"Screenshot saved")
         
-
-
+ 
         
             
         

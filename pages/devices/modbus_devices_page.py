@@ -24,7 +24,9 @@ class ModbusDevices(BasePage):
     def __init__(self, driver, timeout=10):
         super().__init__(driver, timeout=timeout)
         self.common_methods = CommonMethods()
-        
+    
+    # 在测试脚本中的测试类中直接使用cls.driver.get(url)的方法不能打开网页，就在PageObjectModel里面定义一个点击元素进入对应页面的方法
+    # 之后在测试脚本的测试类中的setup_class方法中直接调用该方法进入页面
     def click_to_enter_test_page(self):
         tab = self.common_methods.get_left_menu_tabs(pom=self, target_tab="Modbus Devices")
         self.logger.info(f"{tab.text.strip()}")

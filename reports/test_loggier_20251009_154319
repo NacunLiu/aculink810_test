@@ -1,0 +1,8 @@
+2025-10-09 15:43:19,597 - INFO - ====== WebDriver manager ======
+2025-10-09 15:43:20,728 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:43:20,773 - INFO - Get LATEST chromedriver version for google-chrome
+2025-10-09 15:43:20,790 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\141.0.7390.65\chromedriver-win32/chromedriver.exe] found in cache
+2025-10-09 15:43:34,985 - INFO - virtual devices list test passed
+2025-10-09 15:43:51,935 - ERROR - element not found {e}
+2025-10-09 15:43:52,042 - INFO - Screenshot saved
+2025-10-09 15:43:52,042 - ERROR - click ('xpath', "//button[normalize-space()='Add Virtual DeviCE']") failed

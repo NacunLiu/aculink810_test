@@ -8,6 +8,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 
 
+
 class CommonMethods:
     # 获取table中的所有元素文本, 输入table元素, 输出一个包含所有元素文本的二维列表
     def get_table_data(self, table: WebElement):
@@ -16,7 +17,8 @@ class CommonMethods:
         for row in rows:
             cells = [td.text.strip() for td in row.find_elements(By.TAG_NAME, "td")]
             table_data.append(cells)
-        return table_data
+        return table_data # 2D array
+
     
     # 获取下拉菜单中的所有内容
     def get_options(self, select: WebElement):
@@ -43,6 +45,13 @@ class CommonMethods:
     def load_json_test_data(self, file_path):
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"JSON file not found: {file_path}")
+        with open(file=file_path, mode='r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data
+        
+    def load_json_test_data(self, file_path):
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f'JSON file not found: {file_path}')
         with open(file=file_path, mode='r', encoding='utf-8') as f:
             data = json.load(f)
             return data

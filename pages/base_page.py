@@ -80,7 +80,7 @@ class BasePage:
         self.driver.save_screenshot(f"screenshots/{name}_{timestamp}.png")
         self.logger.info(f"Screenshot saved")
         
- 
-        
+  
+
             
         

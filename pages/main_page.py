@@ -14,8 +14,10 @@ class MainPage(BasePage):
     # 内联元素(inline)不会独占一行, 只占自身宽度, 一般用来修饰文字和小片段内容, 常见的有: <span>, <a>, <img>
     LEFT_MENU = (By.CSS_SELECTOR, "aside.sidebar nav.left_menu ul li a")
     
-    def setup_class(cls):
-        cls.driver.get("https://s8p53070095.accuenergy.io/#/devices/dashboard")
+    # don't use setup_class in the page object like below, it won't work as expect since the setup_class is provided by pytest not python and should only be used in the Test Class in the test scripts
+    # def setup_class(cls):
+    #     sleep(5)
+    #     cls.driver.get("https://s8p53070095.accuenergy.io/#/devices/dashboard")
         
     def main_navigation(self):
         elements = self.find_elements(self.NAV_LINKS)
@@ -32,6 +34,11 @@ class MainPage(BasePage):
                 el.click()
                 sleep(2)
                 return self.driver.current_url
+            
+
+        
+            
+
 
         
     

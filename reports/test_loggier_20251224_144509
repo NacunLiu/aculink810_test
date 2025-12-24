@@ -1,0 +1,13 @@
+2025-12-24 14:45:09,897 - INFO - ====== WebDriver manager ======
+2025-12-24 14:45:10,677 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-24 14:45:10,700 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-24 14:45:10,716 - INFO - Driver [C:\Users\NacunLiu\.wdm\drivers\chromedriver\win64\143.0.7499.169\chromedriver-win32/chromedriver.exe] found in cache
+2025-12-24 14:45:20,413 - INFO - login to aculink810 as admin success
+2025-12-24 14:45:24,256 - INFO - Test Main Navigation Passed
+2025-12-24 14:45:26,424 - INFO - Test Left Menu 0 Passed, open https://s8p53070095.accuenergy.io/#/devices/dashboard works
+2025-12-24 14:45:28,531 - INFO - Test Left Menu 1 Passed, open https://s8p53070095.accuenergy.io/#/devices/alarm_logs works
+2025-12-24 14:45:30,587 - INFO - Test Left Menu 2 Passed, open https://s8p53070095.accuenergy.io/#/devices/modbus_devices/list works
+2025-12-24 14:45:32,680 - INFO - Test Left Menu 3 Passed, open https://s8p53070095.accuenergy.io/#/devices/bacnet_devices/list works
+2025-12-24 14:45:34,757 - INFO - Test Left Menu 4 Passed, open https://s8p53070095.accuenergy.io/#/devices/mbus/list works
+2025-12-24 14:45:36,856 - INFO - Test Left Menu 5 Passed, open https://s8p53070095.accuenergy.io/#/devices/digital_inputs works
+2025-12-24 14:45:38,957 - INFO - Test Left Menu 6 Passed, open https://s8p53070095.accuenergy.io/#/devices/virtual_device/list works

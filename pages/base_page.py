@@ -11,13 +11,15 @@ import os
 import time
 
 
+# Important! Python import is not recursive 所以即使首先使用了import selenium语句,之后的所有import 依然要使用from selenium.webdriver.* 不能省略selenium
+
 # 对于810这种先登录才能访问所有内容的设置，只需要传递driver就能获取所有cookie，token信息，所有内容会被保存在这个driver里面
 # for webpages like AcuLink810 that requires login first before all other operation, we only need to pass the driver, it contains all 
 # the session info and it will carry it for you.
 # 只要不关闭driver driver.quit()可以在一次登录之后继续使用这个driver
 
 class BasePage:
-    def __init__(self, driver, timeout=10): #parameter driver is injected from the test script, and it is  automatically assigned as a class attribute through the 
+    def __init__(self, driver, timeout=10): #driver由test脚本中的Test类的初始化函数在 建立POM的时候传入
         # fixture defined in the conftest.py 
         self.driver = driver
         self.timeout = timeout
@@ -72,7 +74,8 @@ class BasePage:
         except Exception as e:
             self.logger.error(f"get {locator} text failed due to {e}")
         
-        
+    #  _ underscore defines a 内部方法(not inner function, inner function is a function that defined inside another function)
+    # 类内部的函数称为method,类外部的函数才是function
     def _take_screenshot(self, name):
         os.makedirs("screenshots", exist_ok=True)
         # time is a built-in module in python and strftime is a method that converts a time object into a formatted(格式化的) string

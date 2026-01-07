@@ -20,7 +20,7 @@ class DevicesDashboard(BasePage):
     #初始化方法直接添加到对象属性，如果不初始化添加到对象属性，那么需要在CommonMethods类中将其写成static method否则就必须实例化传递self
     # super().父类方法名的作用有两个:第一是当子类方法与父类方法同名时可以不直接覆盖会先调用父类方法之后进行扩展
     # 第二就是如果不使用super那么父类的初始化方法 def __init__(self) 不会被自动调用就无法传递driver
-    # super就是相当于调用了一次父类中的初始化方法就等同于BasePage.__init__(self, driver) 
+    # super就是相当于调用了一次父类中的初始化方法就等同于BasePage.__init__(self, driver) 注意 这里我们传递了一个self进去，因为本质上类对象是不能直接调用对象方法的所以我们把这个self object一起传递给BasePage
     
     def __init__(self, driver):
         super().__init__(driver) #将driver属性传递到父类也就是BasePage类中,这样之后所有的调用都可以在父类中找到driver， driver的传递过程是 TestClass->This Page Object -> BasePage 

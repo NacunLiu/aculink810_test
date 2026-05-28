@@ -35,5 +35,5 @@ class TestMain:
             assert self.LINK_TABS[i] in linked, "Test Left Menu Failed"  # if assert fail then it will return the message and stop this test function and continue with other test functions
             self.main_page.logger.info(f"Test Left Menu {i} Passed, open {linked} works") # no worry to record this log if test failed in previous assert, since it will break the function
             i += 1
-        
+      
     

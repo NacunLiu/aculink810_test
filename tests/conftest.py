@@ -18,11 +18,11 @@ from pages.login_page import LoginPage
 BASE_URL = "https://s8p53070095.accuenergy.io/#/login"
 
 
-# 使用class级别的夹具将driver作为类属性绑定到测试类,是的每一个测试类自动具有driver属性
+# 使用class级别的夹具将driver作为类属性绑定到测试类,使得每一个测试类自动具有driver属性
 # 注意绑定类属性必须将scope定义为class
 # 如果是function级别的应用,可以直接在测试脚本中的函数中通过传递实参(家具函数名)的方式进行调用,但是function 级别的夹具只能在一般的function 中使用而且不能在初始化函数中使用
 # request是pytest提供的上下文对象, context object，它是一个helper object，it helps identify who is requesting the fixture
-#在这里request 就是使用的(request不是class对象,依然是上下文对象，但是它使用调用fixture的class)调用这个fixture的class 给这个class添加一个类属性cls.driver
+# 在这里request 就是使用的(request不是class对象,依然是上下文对象，但是它使用调用fixture的class)调用这个fixture的class 给这个class添加一个类属性cls.driver
 
 @pytest.fixture(scope="class", autouse=True)
 def get_driver(request):
